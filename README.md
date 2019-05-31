@@ -1,15 +1,12 @@
 # bazel-compilation-db
-Generate `compile_commands.json` and run clang-tidy with [Bazel][bazel].
-This is an adaptation of [Kythe][kythe]'s approach with a small patch to support the latest version of Bazel.
 
-1. Append `WORKSPACE` to your repository's `WORKSPACE` file.
-2. Copy `third_party` to your repository directory.
-3. Optionally replace `'kind(cc_.*, //...)'` in `third_party/tools/generate_compilation_database.sh`.
+The easiest way to generate `compile_commands.json` with [Bazel][bazel] in [Kythe][kythe]'s appoach.
 
-To generate a `compile_commands.json` file in `$(bazel info execution_root)`, run `third_party/tools/generate_compilation_database.sh`.
-To use `clang-tidy`, run `third_party/tools/clang_tidy.sh`.
+1. Copy `third_party` to your repository directory.
+2. Optionally replace `'kind(cc_.*, //...)'` in `third_party/tools/generate_compilation_database.sh`.
+3. Run `third_party/tools/generate_compilation_database.sh`.
 
-Tested with Bazel 0.14.1, 0.20.0.
+Tested with Bazel 0.14.1, 0.20.0, 0.24.0.
 
 [bazel]: https://bazel.build/
 [kythe]: https://github.com/google/kythe
