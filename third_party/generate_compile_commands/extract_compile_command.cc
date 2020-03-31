@@ -27,7 +27,7 @@
 #include "google/protobuf/io/zero_copy_stream.h"
 #include "google/protobuf/io/zero_copy_stream_impl.h"
 #include "google/protobuf/stubs/common.h"
-#include "third_party/bazel/src/main/protobuf/extra_actions_base.pb.h"
+#include "third_party/generate_compile_commands/extra_actions_base.pb.h"
 
 namespace {
 using ::google::protobuf::io::CodedInputStream;
@@ -98,8 +98,7 @@ int main(int argc, char **argv) {
   FILE *output = ::fopen(output_file.c_str(), "w");
   if (!output)
     return 1;
-  ::fputs(FormatCompilationCommand(cpp_info.source_file(), args).c_str(),
-          output);
+  ::fputs(FormatCompilationCommand(cpp_info.source_file(), args).c_str(), output);
   ::fclose(output);
   google::protobuf::ShutdownProtobufLibrary();
   return 0;

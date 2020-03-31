@@ -1,11 +1,17 @@
-licenses(["notice"])  # Apache 2.0
+proto_library(
+    name = "extra_actions_base_proto",
+    srcs = ["extra_actions_base.proto"],
+)
+
+cc_proto_library(
+    name = "extra_actions_base_cc_proto",
+    deps = [":extra_actions_base_proto"],
+)
 
 cc_binary(
     name = "extract_compile_command",
     srcs = ["extract_compile_command.cc"],
-    deps = [
-        "//third_party/bazel:extra_actions_base_cc_proto",
-    ],
+    deps = [":extra_actions_base_cc_proto"],
 )
 
 action_listener(

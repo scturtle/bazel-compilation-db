@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 bazel build \
-  --experimental_action_listener=//third_party/tools/generate_compile_commands:extract_json \
+  --experimental_action_listener=//third_party/generate_compile_commands:extract_json \
   $(bazel query 'kind(cc_.*, //...)')
 
 EXEC_ROOT=$(bazel info execution_root)
