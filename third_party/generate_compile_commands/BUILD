@@ -1,3 +1,5 @@
+licenses(["notice"])
+
 proto_library(
     name = "extra_actions_base_proto",
     srcs = ["extra_actions_base.proto"],
